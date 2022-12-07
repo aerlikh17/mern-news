@@ -7,38 +7,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from "axios";
-import { useEffect, useState } from 'react';
 
+export default function StoryCard({ story, setSavedStories, handleDelete, savedStories }) {
 
-export default function StoryCard({ story, user }) {
-
-  const [savedStory, setSavedStory] = useState(false)
-
-  function handleSave() {
+  async function handleSave() {
     const token = localStorage.getItem("token")
     const headers = {}
     if (token) {
       headers.Authorization = `Bearer ${token}`;
     }
-    axios.post("/api/news/saveStory", story, {headers: headers})
+    let savedStory = await axios.post("/api/news/saveStory", story, {headers: headers})
+    console.log(savedStory, "saved story")
+    console.log(savedStories.JSON.stringify(), "saved stories")
+    let newSavedStories = [...savedStories]
+    newSavedStories.push(savedStory)
+    setSavedStories(newSavedStories)
   }
-
-  useEffect(() => {
-    let token = localStorage.getItem("token")
-    const headers = {}
-    console.log(token)
-    async function fetchStory() {
-      if (token) {
-        headers.Authorization = `Bearer ${token}`;
-        let res = await axios.get(`/api/news/${story.url}`, {headers: headers})
-        if (res.data) {
-        setSavedStory(res.data)
-      }
-    }
-   }
-   fetchStory()
-   console.log(savedStory, "saving a story")
-  },[])
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -50,7 +34,11 @@ export default function StoryCard({ story, user }) {
       />
       <CardActions>
         <a href={story.url}><Button size="small">{story.source.name}</Button></a>
-        <Button size="small" onClick={ handleSave }>{ savedStory ? "Save +" : "Unsave -" }</Button>
+        { savedStories && savedStories.includes(story) ?
+        <Button size="small" onClick={() => handleDelete(story._id)}>Unsave -</Button>
+        :
+        <Button size="small" onClick={handleSave}>Save +</Button>
+        }
       </CardActions>
       <CardContent>
         <Typography align="left" gutterBottom variant="h5" component="div">

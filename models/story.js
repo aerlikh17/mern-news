@@ -7,9 +7,9 @@ const storySchema = new Schema(
       author: { type: String },
       title: { type: String, required: true },
       description: { type: String, required: true},
-      content: { type: String, required: true},
+      content: { type: String},
       url: { type: String, required: true },
-      imageUrl: { type: String, required: true },
+      urlToImage: { type: String, required: true },
       user: { type: Schema.Types.ObjectId, ref: 'User' },
     },
     {

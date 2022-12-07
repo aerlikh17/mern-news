@@ -25,6 +25,7 @@ function App() {
     async function saveStory(){
       const stories = await newsAPI.getSavedStories()
       setSavedStories(stories)
+      console.log(savedStories, "saved stories")
     }
     getStory(),
     saveStory()
@@ -45,6 +46,7 @@ function App() {
     axios.delete(`/api/news/${id}`, {headers: headers})
   }
 
+
   return (
     <main className="App">
       {user ? (
@@ -53,12 +55,12 @@ function App() {
           <Routes>
             <Route
               path="/stories/top"
-              element={<TopStoryPage topStories={topStories.articles} user={user} />}
+              element={<TopStoryPage topStories={topStories.articles} user={user} savedStories={savedStories} setSavedStories={setSavedStories}/>}
             />
             <Route
               path="/stories/saved"
               element={
-                <SavedStoriesPage savedStories={savedStories} handleDelete={handleDelete}/>
+                <SavedStoriesPage savedStories={savedStories} handleDelete={handleDelete} setSavedStories={setSavedStories}/>
               }
             />
             <Route

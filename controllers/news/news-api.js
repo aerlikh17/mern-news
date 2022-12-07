@@ -23,12 +23,21 @@ async function topStories(req, res) {
     let savedStories = await Story.find({
       user: req.user._id
     })
-    body.articles = body.articles.filter( element => {
-      for (let article of savedStories) {
-      return article.url !== element.url
-      }
-    })
-    console.log(body.articles)
+    console.log(savedStories, "saved stories")
+    console.log(body, "top stories")
+    // body.articles.forEach(element => {
+    //   if (!savedStories.includes(element)) {
+    //     console.log("element found")
+    //     filteredArticles.push(element)
+    //   }
+      // if (article.url !== element.url) {
+      //   console.log(article.url, 'url')
+      //   if (!filteredArticles.includes(article)) {
+      //   filteredArticles.push(article)
+      //   }
+      //  }
+    // })
+    // body.articles = filteredArticles;
     res.json(body);
   } catch (error) {
     res.status(400).json(error);
@@ -37,19 +46,23 @@ async function topStories(req, res) {
 
 async function saveStory(req, res) {
   if (!req.body.author) req.body.author = "Unknown author"
+  if (!req.body.content) req.body.content = "No content"
   try {
+    console.log(req.body)
+
     await Story.create({
       source: req.body.source.name,
       author: req.body.author,
       title: req.body.title,
       url: req.body.url,
-      imageUrl: req.body.urlToImage,
+      urlToImage: req.body.urlToImage,
       description: req.body.description,
       content: req.body.content,
       user: req.user._id
     })
     res.status(200).send("Done")
   } catch(err) {
+    console.log(err)
     res.status(400).json(err);
   }
 }
