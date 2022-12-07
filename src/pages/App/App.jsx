@@ -74,6 +74,7 @@ function App() {
                 <SearchPage
                   getSearch={getSearch}
                   searchStories={searchStories}
+                  setCurrentStory={setCurrentStory}
                 />
               }
             />
