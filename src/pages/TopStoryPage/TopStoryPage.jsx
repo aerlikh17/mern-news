@@ -13,8 +13,7 @@ export default function TopStoryPage({
   setSavedStories,
   handleDelete,
   setCurrentStory,
-  isSaved,
-  setIsSaved,
+  user,
 }) {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -23,7 +22,6 @@ export default function TopStoryPage({
     textAlign: "center",
     color: theme.palette.text.secondary,
   }));
-  console.log(savedStories);
   return (
     <Box className="page-body" sx={{ flexGrow: 1 }}>
       <Grid
@@ -34,11 +32,8 @@ export default function TopStoryPage({
         {topStories.length > 0 &&
           topStories.map((story, idx) => {
             {
-              setIsSaved(false);
-            }
-            {
               savedStories.forEach(function (saved) {
-                if (saved.url === story.url) {
+                if (saved.url === story.url && user.id === saved.id) {
                   story.saved = true;
                 }
               });
@@ -54,7 +49,6 @@ export default function TopStoryPage({
                     setSavedStories={setSavedStories}
                     handleDelete={handleDelete}
                     setCurrentStory={setCurrentStory}
-                    isSaved={isSaved}
                   />
                 </Grid>
               );

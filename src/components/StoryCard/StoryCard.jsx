@@ -15,7 +15,6 @@ export default function StoryCard({
   setSavedStories,
   handleDelete,
   setCurrentStory,
-  isSaved,
 }) {
   async function handleSave() {
     const token = localStorage.getItem("token");
@@ -23,12 +22,14 @@ export default function StoryCard({
     if (token) {
       headers.Authorization = `Bearer ${token}`;
     }
-    let savedStory = await axios.post("/api/news/saveStory", story, {
-      headers: headers,
-    });
-    let newSavedStories = [...savedStories];
-    newSavedStories.push(savedStory);
-    setSavedStories(newSavedStories);
+    console.log(savedStories);
+    axios
+      .post("/api/news/saveStory", story, {
+        headers: headers,
+      })
+      .then((result) => {
+        setSavedStories([...savedStories, result.data]);
+      });
   }
 
   return (

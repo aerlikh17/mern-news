@@ -50,7 +50,7 @@ async function saveStory(req, res) {
   try {
     console.log(req.body);
 
-    await Story.create({
+    let story = await Story.create({
       source: req.body.source.name,
       author: req.body.author,
       title: req.body.title,
@@ -60,7 +60,7 @@ async function saveStory(req, res) {
       content: req.body.content,
       user: req.user._id,
     });
-    res.status(200).send("Done");
+    res.status(200).json(story);
   } catch (err) {
     res.status(400).json(err);
   }

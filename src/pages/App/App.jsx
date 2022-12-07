@@ -17,7 +17,6 @@ function App() {
   const [topStories, setTopStories] = useState([]);
   const [savedStories, setSavedStories] = useState([]);
   const [searchStories, setSearchStories] = useState([]);
-  const [isSaved, setIsSaved] = useState(false);
   const [currentStory, setCurrentStory] = useState([]);
 
   useEffect(function () {
@@ -63,8 +62,7 @@ function App() {
                   setSavedStories={setSavedStories}
                   handleDelete={handleDelete}
                   setCurrentStory={setCurrentStory}
-                  isSaved={isSaved}
-                  setIsSaved={setIsSaved}
+                  user={user}
                 />
               }
             />
