@@ -11,9 +11,10 @@ import axios from "axios";
 
 export default function StoryCard({
   story,
+  savedStories,
   setSavedStories,
   handleDelete,
-  savedStories,
+  setCurrentStory,
 }) {
   async function handleSave() {
     const token = localStorage.getItem("token");

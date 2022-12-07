@@ -7,8 +7,13 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { getSavedStories } from "../../utilities/news-api";
 
-export default function TopStoryPage({ topStories, user, setCurrentStory }) {
-export default function TopStoryPage({ topStories, user, savedStories, setSavedStories, setCurrentStory }) {
+export default function TopStoryPage({
+  topStories,
+  savedStories,
+  setSavedStories,
+  handleDelete,
+  setCurrentStory,
+}) {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -16,7 +21,7 @@ export default function TopStoryPage({ topStories, user, savedStories, setSavedS
     textAlign: "center",
     color: theme.palette.text.secondary,
   }));
-  console.log(savedStories)
+  console.log(savedStories);
   return (
     <Box className="page-body" sx={{ flexGrow: 1 }}>
       <Grid
@@ -24,21 +29,25 @@ export default function TopStoryPage({ topStories, user, savedStories, setSavedS
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 2, sm: 8, md: 12 }}
       >
-        {topStories.length > 0 && topStories.map((story, idx) => {
-          {if (!savedStories.includes(story)){
-          return (
-            <Grid item xs={2} sm={4} md={4} key={idx}>
-              <StoryCard story={story} key={idx} user={user} setSavedStories={setSavedStories} savedStories={savedStories}/>
-              <StoryCard
-                story={story}
-                key={idx}
-                user={user}
-                setCurrentStory={setCurrentStory}
-              />
-            </Grid>
-          )};
-        }}
-      )}
+        {topStories.length > 0 &&
+          topStories.map((story, idx) => {
+            {
+              if (!savedStories.includes(story)) {
+                return (
+                  <Grid item xs={2} sm={4} md={4} key={idx}>
+                    <StoryCard
+                      key={idx}
+                      story={story}
+                      savedStories={savedStories}
+                      setSavedStories={setSavedStories}
+                      handleDelete={handleDelete}
+                      setCurrentStory={setCurrentStory}
+                    />
+                  </Grid>
+                );
+              }
+            }
+          })}
       </Grid>
     </Box>
   );

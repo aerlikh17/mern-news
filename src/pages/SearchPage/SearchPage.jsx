@@ -11,6 +11,9 @@ import Grid from "@mui/material/Grid";
 export default function SearchPage({
   getSearch,
   searchStories,
+  savedStories,
+  setSavedStories,
+  handleDelete,
   setCurrentStory,
 }) {
   const Item = styled(Paper)(({ theme }) => ({
@@ -35,8 +38,11 @@ export default function SearchPage({
               return (
                 <Grid item xs={2} sm={4} md={4} key={idx}>
                   <StoryCard
-                    story={story}
                     key={idx}
+                    story={story}
+                    savedStories={savedStories}
+                    setSavedStories={setSavedStories}
+                    handleDelete={handleDelete}
                     setCurrentStory={setCurrentStory}
                   />
                 </Grid>

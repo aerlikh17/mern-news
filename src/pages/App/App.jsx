@@ -58,22 +58,22 @@ function App() {
               path="/stories/top"
               element={
                 <TopStoryPage
-                  topStories={topStories.articles}
-                  user={user}
+                  topStories={topStories}
                   savedStories={savedStories}
                   setSavedStories={setSavedStories}
+                  handleDelete={handleDelete}
+                  setCurrentStory={setCurrentStory}
                 />
               }
             />
             <Route
               path="/stories/saved"
               element={
-                <TopStoryPage
-                  topStories={topStories}
-                  user={user}
-                  setCurrentStory={setCurrentStory}
+                <SavedStoriesPage
+                  savedStories={savedStories}
                   setSavedStories={setSavedStories}
                   handleDelete={handleDelete}
+                  setCurrentStory={setCurrentStory}
                 />
               }
             />
@@ -87,6 +87,9 @@ function App() {
                 <SearchPage
                   getSearch={getSearch}
                   searchStories={searchStories}
+                  savedStories={savedStories}
+                  setSavedStories={setSavedStories}
+                  handleDelete={handleDelete}
                   setCurrentStory={setCurrentStory}
                 />
               }
