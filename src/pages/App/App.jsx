@@ -58,9 +58,22 @@ function App() {
               path="/stories/top"
               element={
                 <TopStoryPage
+                  topStories={topStories.articles}
+                  user={user}
+                  savedStories={savedStories}
+                  setSavedStories={setSavedStories}
+                />
+              }
+            />
+            <Route
+              path="/stories/saved"
+              element={
+                <TopStoryPage
                   topStories={topStories}
                   user={user}
                   setCurrentStory={setCurrentStory}
+                  setSavedStories={setSavedStories}
+                  handleDelete={handleDelete}
                 />
               }
             />

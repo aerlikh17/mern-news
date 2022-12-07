@@ -5,8 +5,10 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import { getSavedStories } from "../../utilities/news-api";
 
 export default function TopStoryPage({ topStories, user, setCurrentStory }) {
+export default function TopStoryPage({ topStories, user, savedStories, setSavedStories, setCurrentStory }) {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -14,7 +16,7 @@ export default function TopStoryPage({ topStories, user, setCurrentStory }) {
     textAlign: "center",
     color: theme.palette.text.secondary,
   }));
-
+  console.log(savedStories)
   return (
     <Box className="page-body" sx={{ flexGrow: 1 }}>
       <Grid
@@ -22,9 +24,11 @@ export default function TopStoryPage({ topStories, user, setCurrentStory }) {
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 2, sm: 8, md: 12 }}
       >
-        {topStories.map((story, idx) => {
+        {topStories.length > 0 && topStories.map((story, idx) => {
+          {if (!savedStories.includes(story)){
           return (
             <Grid item xs={2} sm={4} md={4} key={idx}>
+              <StoryCard story={story} key={idx} user={user} setSavedStories={setSavedStories} savedStories={savedStories}/>
               <StoryCard
                 story={story}
                 key={idx}
@@ -32,8 +36,9 @@ export default function TopStoryPage({ topStories, user, setCurrentStory }) {
                 setCurrentStory={setCurrentStory}
               />
             </Grid>
-          );
-        })}
+          )};
+        }}
+      )}
       </Grid>
     </Box>
   );
