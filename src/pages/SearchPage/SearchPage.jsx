@@ -1,4 +1,3 @@
-import { Container } from "@mui/material";
 import React from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import "./SearchPage.css";
