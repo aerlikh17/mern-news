@@ -21,7 +21,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 

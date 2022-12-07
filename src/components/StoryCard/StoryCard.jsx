@@ -25,7 +25,6 @@ export default function StoryCard({ story, user, setCurrentStory }) {
   useEffect(() => {
     let token = localStorage.getItem("token");
     const headers = {};
-    console.log(token);
     async function fetchStory() {
       if (token) {
         headers.Authorization = `Bearer ${token}`;
@@ -38,7 +37,6 @@ export default function StoryCard({ story, user, setCurrentStory }) {
       }
     }
     fetchStory();
-    console.log(savedStory, "saving a story");
   }, []);
 
   return (
