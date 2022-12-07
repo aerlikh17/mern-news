@@ -35,6 +35,7 @@ export default function TopStoryPage({
               savedStories.forEach(function (saved) {
                 if (saved.url === story.url && user.id === saved.id) {
                   story.saved = true;
+                  story._id = saved._id;
                 }
               });
             }
