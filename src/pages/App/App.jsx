@@ -16,9 +16,9 @@ function App() {
   const [user, setUser] = useState(getUser());
   const [topStories, setTopStories] = useState([]);
   const [savedStories, setSavedStories] = useState([]);
-  const [currentStory, setCurrentStory] = useState([]);
-
   const [searchStories, setSearchStories] = useState([]);
+  const [isSaved, setIsSaved] = useState(false);
+  const [currentStory, setCurrentStory] = useState([]);
 
   useEffect(function () {
     async function getStory() {
@@ -63,6 +63,8 @@ function App() {
                   setSavedStories={setSavedStories}
                   handleDelete={handleDelete}
                   setCurrentStory={setCurrentStory}
+                  isSaved={isSaved}
+                  setIsSaved={setIsSaved}
                 />
               }
             />

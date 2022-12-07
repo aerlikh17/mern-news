@@ -15,6 +15,7 @@ export default function StoryCard({
   setSavedStories,
   handleDelete,
   setCurrentStory,
+  isSaved,
 }) {
   async function handleSave() {
     const token = localStorage.getItem("token");
@@ -25,8 +26,6 @@ export default function StoryCard({
     let savedStory = await axios.post("/api/news/saveStory", story, {
       headers: headers,
     });
-    console.log(savedStory, "saved story");
-    console.log(savedStories.JSON.stringify(), "saved stories");
     let newSavedStories = [...savedStories];
     newSavedStories.push(savedStory);
     setSavedStories(newSavedStories);
@@ -44,7 +43,7 @@ export default function StoryCard({
         <a href={story.url}>
           <Button size="small">{story.source.name}</Button>
         </a>
-        {savedStories && savedStories.includes(story) ? (
+        {(savedStories && savedStories.includes(story)) || story.saved ? (
           <Button size="small" onClick={() => handleDelete(story._id)}>
             Unsave -
           </Button>

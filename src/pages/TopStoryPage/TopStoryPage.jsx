@@ -13,6 +13,8 @@ export default function TopStoryPage({
   setSavedStories,
   handleDelete,
   setCurrentStory,
+  isSaved,
+  setIsSaved,
 }) {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -32,20 +34,30 @@ export default function TopStoryPage({
         {topStories.length > 0 &&
           topStories.map((story, idx) => {
             {
-              if (!savedStories.includes(story)) {
-                return (
-                  <Grid item xs={2} sm={4} md={4} key={idx}>
-                    <StoryCard
-                      key={idx}
-                      story={story}
-                      savedStories={savedStories}
-                      setSavedStories={setSavedStories}
-                      handleDelete={handleDelete}
-                      setCurrentStory={setCurrentStory}
-                    />
-                  </Grid>
-                );
-              }
+              setIsSaved(false);
+            }
+            {
+              savedStories.forEach(function (saved) {
+                if (saved.url === story.url) {
+                  story.saved = true;
+                }
+              });
+            }
+
+            {
+              return (
+                <Grid item xs={2} sm={4} md={4} key={idx}>
+                  <StoryCard
+                    key={idx}
+                    story={story}
+                    savedStories={savedStories}
+                    setSavedStories={setSavedStories}
+                    handleDelete={handleDelete}
+                    setCurrentStory={setCurrentStory}
+                    isSaved={isSaved}
+                  />
+                </Grid>
+              );
             }
           })}
       </Grid>
