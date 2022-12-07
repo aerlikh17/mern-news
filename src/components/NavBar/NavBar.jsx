@@ -48,7 +48,7 @@ export default function FixedNavigation({ user, setUser }) {
         sx={{
           width: `calc(100% - ${drawerWidth}px)`,
           ml: `${drawerWidth}px`,
-          display: { xs: "none", sm: "flex" },
+          display: { xs: "none", sm: "none", md: "flex" },
         }}
       >
         <Drawer
@@ -121,7 +121,7 @@ export default function FixedNavigation({ user, setUser }) {
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-        sx={{ display: { sm: "none" } }}
+        sx={{ display: { md: "none" } }}
       >
         <BottomNavigationAction
           label="Top Stories"
