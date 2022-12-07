@@ -8,7 +8,11 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
-export default function SearchPage({ getSearch, searchStories }) {
+export default function SearchPage({
+  getSearch,
+  searchStories,
+  setCurrentStory,
+}) {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -30,7 +34,11 @@ export default function SearchPage({ getSearch, searchStories }) {
             searchStories.map((story, idx) => {
               return (
                 <Grid item xs={2} sm={4} md={4} key={idx}>
-                  <StoryCard story={story} key={idx} />
+                  <StoryCard
+                    story={story}
+                    key={idx}
+                    setCurrentStory={setCurrentStory}
+                  />
                 </Grid>
               );
             })
