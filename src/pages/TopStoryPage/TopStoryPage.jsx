@@ -11,6 +11,7 @@ export default function TopStoryPage({
   topStories,
   savedStories,
   setSavedStories,
+  handleSave,
   handleDelete,
   setCurrentStory,
   user,
@@ -48,6 +49,7 @@ export default function TopStoryPage({
                     story={story}
                     savedStories={savedStories}
                     setSavedStories={setSavedStories}
+                    handleSave={handleSave}
                     handleDelete={handleDelete}
                     setCurrentStory={setCurrentStory}
                   />

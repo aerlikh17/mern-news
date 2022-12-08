@@ -13,24 +13,24 @@ export default function StoryCard({
   story,
   savedStories,
   setSavedStories,
+  handleSave,
   handleDelete,
   setCurrentStory,
 }) {
-  async function handleSave() {
-    const token = localStorage.getItem("token");
-    const headers = {};
-    if (token) {
-      headers.Authorization = `Bearer ${token}`;
-    }
-    console.log(savedStories);
-    axios
-      .post("/api/news/saveStory", story, {
-        headers: headers,
-      })
-      .then((result) => {
-        setSavedStories([...savedStories, result.data]);
-      });
-  }
+  // async function handleSave() {
+  //   const token = localStorage.getItem("token");
+  //   const headers = {};
+  //   if (token) {
+  //     headers.Authorization = `Bearer ${token}`;
+  //   }
+  //   axios
+  //     .post("/api/news/saveStory", story, {
+  //       headers: headers,
+  //     })
+  //     .then((result) => {
+  //       setSavedStories([...savedStories, result.data]);
+  //     });
+  // }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -49,7 +49,7 @@ export default function StoryCard({
             Unsave -
           </Button>
         ) : (
-          <Button size="small" onClick={handleSave}>
+          <Button size="small" onClick={() => handleSave(story)}>
             Save +
           </Button>
         )}

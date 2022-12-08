@@ -37,6 +37,21 @@ function App() {
     setSearchStories(stories.articles);
   }
 
+  async function handleSave(story) {
+    const token = localStorage.getItem("token");
+    const headers = {};
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+    }
+    axios
+      .post("/api/news/saveStory", story, {
+        headers: headers,
+      })
+      .then((result) => {
+        setSavedStories([...savedStories, result.data]);
+      });
+  }
+
   function handleDelete(id) {
     setSavedStories(savedStories.filter((story) => story._id !== id));
     const token = localStorage.getItem("token");
@@ -60,6 +75,7 @@ function App() {
                   topStories={topStories}
                   savedStories={savedStories}
                   setSavedStories={setSavedStories}
+                  handleSave={handleSave}
                   handleDelete={handleDelete}
                   setCurrentStory={setCurrentStory}
                   user={user}
@@ -79,7 +95,16 @@ function App() {
             />
             <Route
               path="/stories/detail"
-              element={<DetailsPage story={currentStory} />}
+              element={
+                <DetailsPage
+                  story={currentStory}
+                  savedStories={savedStories}
+                  setSavedStories={setSavedStories}
+                  handleSave={handleSave}
+                  handleDelete={handleDelete}
+                  user={user}
+                />
+              }
             />
             <Route
               path="/search"
@@ -89,6 +114,7 @@ function App() {
                   searchStories={searchStories}
                   savedStories={savedStories}
                   setSavedStories={setSavedStories}
+                  handleSave={handleSave}
                   handleDelete={handleDelete}
                   setCurrentStory={setCurrentStory}
                   user={user}
