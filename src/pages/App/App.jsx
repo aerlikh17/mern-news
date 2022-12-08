@@ -91,6 +91,7 @@ function App() {
                   setSavedStories={setSavedStories}
                   handleDelete={handleDelete}
                   setCurrentStory={setCurrentStory}
+                  user={user}
                 />
               }
             />
