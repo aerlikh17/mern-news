@@ -13,6 +13,7 @@ export default function SearchPage({
   searchStories,
   savedStories,
   setSavedStories,
+  handleSave,
   handleDelete,
   setCurrentStory,
   user,
@@ -51,6 +52,7 @@ export default function SearchPage({
                     story={story}
                     savedStories={savedStories}
                     setSavedStories={setSavedStories}
+                    handleSave={handleSave}
                     handleDelete={handleDelete}
                     setCurrentStory={setCurrentStory}
                   />
