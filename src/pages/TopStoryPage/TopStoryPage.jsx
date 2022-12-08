@@ -16,7 +16,7 @@ export default function TopStoryPage({ topStories, user, setCurrentStory }) {
   }));
 
   return (
-    <Box className="page-body" sx={{ flexGrow: 2 }}>
+    <Box className="page-body" sx={{ flexGrow: 1 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}

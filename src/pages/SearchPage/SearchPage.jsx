@@ -24,12 +24,12 @@ export default function SearchPage({ getSearch, searchStories }) {
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 2, sm: 8, md: 12 }}
+          columns={{ xs: 2, sm: 2, md: 8, lg: 12 }}
         >
           {searchStories.length ? (
             searchStories.map((story, idx) => {
               return (
-                <Grid item xs={2} sm={4} md={4} key={idx}>
+                <Grid item xs={2} sm={4} md={4} key={idx} id="gridItem">
                   <StoryCard story={story} key={idx} />
                 </Grid>
               );
