@@ -45,8 +45,8 @@ a {
   text-decoration: none;
 }
 
-#botNav {
-  z-index: 2;
+.nav-button:active {
+  color: #1976d2;
 }
 
 @media only screen and (min-width: 900px) {

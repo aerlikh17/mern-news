@@ -12,7 +12,7 @@ import Paper from "@mui/material/Paper";
 import LogoutIcon from "@mui/icons-material/Logout";
 import GradeIcon from "@mui/icons-material/Grade";
 import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
+
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -21,8 +21,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import zIndex from "@mui/material/styles/zIndex";
-import { red } from "@mui/material/colors";
 
 const drawerWidth = 240;
 
@@ -66,7 +64,6 @@ export default function FixedNavigation({ user, setUser }) {
           anchor="left"
         >
           <img src="/newsbyte_imageURL.png" alt="" />
-          <Toolbar />
 
           <List>
             <ListItem>
