@@ -23,21 +23,6 @@ async function topStories(req, res) {
     let savedStories = await Story.find({
       user: req.user._id,
     });
-    console.log(savedStories, "saved stories");
-    console.log(body, "top stories");
-    // body.articles.forEach(element => {
-    //   if (!savedStories.includes(element)) {
-    //     console.log("element found")
-    //     filteredArticles.push(element)
-    //   }
-    // if (article.url !== element.url) {
-    //   console.log(article.url, 'url')
-    //   if (!filteredArticles.includes(article)) {
-    //   filteredArticles.push(article)
-    //   }
-    //  }
-    // })
-    // body.articles = filteredArticles;
     res.json(body);
   } catch (error) {
     res.status(400).json(error);
@@ -65,6 +50,7 @@ async function saveStory(req, res) {
 }
 
 async function getSavedStories(req, res) {
+  console.log(req.user._id, "USER ID");
   try {
     let stories = await Story.find({
       user: req.user._id,
