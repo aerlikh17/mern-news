@@ -84,7 +84,7 @@ async function search(req, res) {
   const params = new URLSearchParams({
     q: req.body.search,
     language: "en",
-    pageSize: 10,
+    pageSize: 20,
     apiKey: process.env.NEWS_KEY,
   });
   try {

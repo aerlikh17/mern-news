@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import SearchPage from "../SearchPage/SearchPage";
@@ -19,18 +19,21 @@ function App() {
   const [searchStories, setSearchStories] = useState([]);
   const [currentStory, setCurrentStory] = useState([]);
 
-  useEffect(function () {
-    async function getStory() {
-      const stories = await newsAPI.topStories();
-      setTopStories(stories.articles);
-    }
-    async function saveStory() {
-      const stories = await newsAPI.getSavedStories();
-      setSavedStories(stories);
-    }
-    getStory();
-    saveStory();
-  }, []);
+  useEffect(
+    function () {
+      async function getStory() {
+        const stories = await newsAPI.topStories();
+        setTopStories(stories.articles);
+      }
+      async function saveStory() {
+        const stories = await newsAPI.getSavedStories();
+        setSavedStories(stories);
+      }
+      getStory();
+      saveStory();
+    },
+    [user]
+  );
 
   async function getSearch(query) {
     const stories = await newsAPI.searchStories(query);
@@ -68,6 +71,7 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
+            <Route path="/" element={<Navigate to="/stories/top" />} />
             <Route
               path="/stories/top"
               element={
