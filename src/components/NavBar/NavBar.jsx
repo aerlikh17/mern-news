@@ -21,6 +21,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import zIndex from "@mui/material/styles/zIndex";
 
 const drawerWidth = 240;
 
@@ -48,7 +49,8 @@ export default function FixedNavigation({ user, setUser }) {
         sx={{
           width: `calc(100% - ${drawerWidth}px)`,
           ml: `${drawerWidth}px`,
-          display: { xs: "none", sm: "flex" },
+          display: { xs: "none", sm: "none", md: "flex" },
+          zIndex: "4",
         }}
       >
         <Drawer
@@ -121,7 +123,7 @@ export default function FixedNavigation({ user, setUser }) {
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-        sx={{ display: { sm: "none" } }}
+        sx={{ display: { md: "none" }, zIndex: "20" }}
       >
         <BottomNavigationAction
           label="Top Stories"

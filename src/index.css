@@ -27,3 +27,26 @@ body {
   padding: 2vmin;
   height: 100vh;
 }
+
+.page-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#gridItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  color: #36312e;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 900px) {
+  .page-body {
+    margin-left: 240px;
+  }
+}

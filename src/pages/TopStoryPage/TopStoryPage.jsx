@@ -1,10 +1,9 @@
 import React from "react";
 import StoryCard from "../../components/StoryCard/StoryCard";
 
-import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import { Typography } from "@mui/material";
 import { getSavedStories } from "../../utilities/news-api";
 
 export default function TopStoryPage({
@@ -16,19 +15,15 @@ export default function TopStoryPage({
   setCurrentStory,
   user,
 }) {
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
   return (
     <Box className="page-body" sx={{ flexGrow: 1 }}>
+      <Typography variant="h3" marginBottom="4rem">
+        Top Stories
+      </Typography>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 2, sm: 8, md: 12 }}
+        columns={{ xs: 2, sm: 2, md: 8, lg: 12 }}
       >
         {topStories.length > 0 &&
           topStories.map((story, idx) => {
@@ -43,7 +38,7 @@ export default function TopStoryPage({
               });
 
               return (
-                <Grid item xs={2} sm={4} md={4} key={idx}>
+                <Grid item xs={2} sm={4} md={4} key={idx} id="gridItem">
                   <StoryCard
                     key={idx}
                     story={story}

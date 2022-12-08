@@ -1,12 +1,10 @@
 import React from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import "./SearchPage.css";
 import StoryCard from "../../components/StoryCard/StoryCard";
 
-import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import { Typography } from "@mui/material";
 
 export default function SearchPage({
   getSearch,
@@ -18,24 +16,19 @@ export default function SearchPage({
   setCurrentStory,
   user,
 }) {
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
-
   return (
     <>
       <Box className="page-body" sx={{ flexGrow: 1 }}>
+        <Typography variant="h3" marginBottom="4rem">
+          Search
+        </Typography>
         <SearchBar getSearch={getSearch} />
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 2, sm: 8, md: 12 }}
+          columns={{ xs: 2, sm: 2, md: 8, lg: 12 }}
         >
-          {searchStories.length ? (
+          {searchStories.length > 0 ? (
             searchStories.map((story, idx) => {
               story.saved = false;
               story._id = "";
@@ -46,7 +39,7 @@ export default function SearchPage({
                 }
               });
               return (
-                <Grid item xs={2} sm={4} md={4} key={idx}>
+                <Grid item xs={2} sm={4} md={4} key={idx} id="gridItem">
                   <StoryCard
                     key={idx}
                     story={story}
@@ -60,7 +53,7 @@ export default function SearchPage({
               );
             })
           ) : (
-            <h4>Search</h4>
+            <h4></h4>
           )}
         </Grid>
       </Box>

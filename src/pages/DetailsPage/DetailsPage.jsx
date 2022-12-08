@@ -1,7 +1,8 @@
-import { Container } from "@mui/material";
+import { useEffect } from "react";
+
+import { Container, Typography, List, ListItem } from "@mui/material";
 import { Paper } from "@mui/material";
 import Button from "@mui/material/Button";
-import { useEffect } from "react";
 
 export default function DetailsPage({
   story,
@@ -26,28 +27,38 @@ export default function DetailsPage({
   });
 
   return (
-    <>
+    <div className="page-body">
       <Container maxWidth="md" sx={{ mx: "auto" }}>
         <Paper elevation1 sx={{ p: 5 }}>
-          <img src={story.urlToImage} style={{ maxWidth: "100%" }} />
-          <h1>{story.title}</h1>
-          {(savedStories && savedStories.includes(story)) || story.saved ? (
-            <Button size="small" onClick={() => handleDelete(story._id)}>
-              Unsave -
+          <img
+            src={story.urlToImage}
+            style={{ maxWidth: "100%", borderRadius: "10px" }}
+          />
+          <List>
+            <Typography variant="h4" margin="1rem">
+              {story.title}
+            </Typography>
+            {(savedStories && savedStories.includes(story)) || story.saved ? (
+              <Button size="small" onClick={() => handleDelete(story._id)}>
+                Unsave -
+              </Button>
+            ) : (
+              <Button size="small" onClick={() => handleSave(story)}>
+                Save +
+              </Button>
+            )}
+            <ListItem>
+              <Typography variant="h5">{story.description}</Typography>
+            </ListItem>
+            <ListItem>
+              <Typography variant="body1">{contentSplit()}</Typography>
+            </ListItem>
+            <Button href={story.url} target="_blank">
+              Read Full Article at {story.source.name}
             </Button>
-          ) : (
-            <Button size="small" onClick={() => handleSave(story)}>
-              Save +
-            </Button>
-          )}
-          <h3>{story.description}</h3>
-          <h3>{story.source.name}</h3>
-          <p>{contentSplit()}</p>
-          <a href={story.url} target="_blank">
-            Read Full Article
-          </a>
+          </List>
         </Paper>
       </Container>
-    </>
+    </div>
   );
 }
