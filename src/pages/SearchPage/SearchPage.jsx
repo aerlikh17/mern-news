@@ -2,9 +2,7 @@ import React from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import StoryCard from "../../components/StoryCard/StoryCard";
 
-import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
 export default function SearchPage({
@@ -17,14 +15,6 @@ export default function SearchPage({
   setCurrentStory,
   user,
 }) {
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#cccccc",
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
-
   return (
     <>
       <Box className="page-body" sx={{ flexGrow: 1 }}>
