@@ -12,11 +12,6 @@ export default function DetailsPage({
   handleDelete,
   user,
 }) {
-  function contentSplit() {
-    let content = story.content.split("[+");
-    return content[0];
-  }
-
   story.saved = false;
   story._id = "";
   savedStories.forEach(function (saved) {
@@ -49,9 +44,6 @@ export default function DetailsPage({
             )}
             <ListItem>
               <Typography variant="h5">{story.description}</Typography>
-            </ListItem>
-            <ListItem>
-              <Typography variant="body1">{contentSplit()}</Typography>
             </ListItem>
             <Button href={story.url} target="_blank">
               Read Full Article at {story.source.name}
