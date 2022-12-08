@@ -23,7 +23,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: var(--tan-1) !important;
   padding: 2vmin;
   height: 100vh;
 }
@@ -43,6 +43,10 @@ body {
 a {
   color: #36312e;
   text-decoration: none;
+}
+
+#botNav {
+  z-index: 2;
 }
 
 @media only screen and (min-width: 900px) {

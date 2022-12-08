@@ -22,6 +22,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import zIndex from "@mui/material/styles/zIndex";
+import { red } from "@mui/material/colors";
 
 const drawerWidth = 240;
 
@@ -50,7 +51,6 @@ export default function FixedNavigation({ user, setUser }) {
           width: `calc(100% - ${drawerWidth}px)`,
           ml: `${drawerWidth}px`,
           display: { xs: "none", sm: "none", md: "flex" },
-          zIndex: "4",
         }}
       >
         <Drawer
@@ -65,7 +65,9 @@ export default function FixedNavigation({ user, setUser }) {
           variant="permanent"
           anchor="left"
         >
+          <img src="/newsbyte_imageURL.png" alt="" />
           <Toolbar />
+
           <List>
             <ListItem>
               <ListItemButton>
@@ -117,35 +119,39 @@ export default function FixedNavigation({ user, setUser }) {
 
   const BottomNav = () => {
     return (
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-        sx={{ display: { md: "none" }, zIndex: "20" }}
-      >
-        <BottomNavigationAction
-          label="Top Stories"
-          icon={<GradeIcon />}
-          onClick={handleTopStories}
-        />
-        <BottomNavigationAction
-          label="Search"
-          icon={<SearchIcon />}
-          onClick={handleSearch}
-        />
-        <BottomNavigationAction
-          label="Saved Stories"
-          icon={<FavoriteIcon />}
-          onClick={handleSavedStories}
-        />
-        <BottomNavigationAction
-          label="Log out"
-          icon={<LogoutIcon />}
-          onClick={handleLogOut}
-        />
-      </BottomNavigation>
+      <div id="botNav">
+        <BottomNavigation
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          sx={{
+            display: { md: "none" },
+          }}
+        >
+          <BottomNavigationAction
+            label="Top Stories"
+            icon={<GradeIcon />}
+            onClick={handleTopStories}
+          />
+          <BottomNavigationAction
+            label="Search"
+            icon={<SearchIcon />}
+            onClick={handleSearch}
+          />
+          <BottomNavigationAction
+            label="Saved Stories"
+            icon={<FavoriteIcon />}
+            onClick={handleSavedStories}
+          />
+          <BottomNavigationAction
+            label="Log out"
+            icon={<LogoutIcon />}
+            onClick={handleLogOut}
+          />
+        </BottomNavigation>
+      </div>
     );
   };
 
@@ -153,7 +159,7 @@ export default function FixedNavigation({ user, setUser }) {
     <Box sx={{ pb: 7 }} ref={ref}>
       <CssBaseline />
       <Paper
-        sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
+        sx={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 2 }}
         elevation={3}
       >
         <BottomNav />
