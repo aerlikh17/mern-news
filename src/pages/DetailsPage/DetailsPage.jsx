@@ -35,9 +35,9 @@ export default function DetailsPage({
             style={{ maxWidth: "100%", borderRadius: "10px" }}
           />
           <List>
-            <ListItem>
-              <Typography variant="h4">{story.title}</Typography>
-            </ListItem>
+            <Typography variant="h4" margin="1rem">
+              {story.title}
+            </Typography>
             {(savedStories && savedStories.includes(story)) || story.saved ? (
               <Button size="small" onClick={() => handleDelete(story._id)}>
                 Unsave -
@@ -51,13 +51,10 @@ export default function DetailsPage({
               <Typography variant="h5">{story.description}</Typography>
             </ListItem>
             <ListItem>
-              <Typography variant="h7">{story.source.name}</Typography>
-            </ListItem>
-            <ListItem>
               <Typography variant="body1">{contentSplit()}</Typography>
             </ListItem>
             <Button href={story.url} target="_blank">
-              Read Full Article
+              Read Full Article at {story.source.name}
             </Button>
           </List>
         </Paper>
