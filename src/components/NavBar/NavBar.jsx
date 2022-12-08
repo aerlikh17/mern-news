@@ -65,7 +65,9 @@ export default function FixedNavigation({ user, setUser }) {
           variant="permanent"
           anchor="left"
         >
+          <img src="/newsbyte_imageURL.png" alt="" />
           <Toolbar />
+
           <List>
             <ListItem>
               <ListItemButton>
@@ -123,7 +125,7 @@ export default function FixedNavigation({ user, setUser }) {
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-        sx={{ display: { md: "none" }, zIndex: "20" }}
+        sx={{ display: { md: "none" } }}
       >
         <BottomNavigationAction
           label="Top Stories"
@@ -156,7 +158,7 @@ export default function FixedNavigation({ user, setUser }) {
         sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
         elevation={3}
       >
-        <BottomNav />
+        <BottomNav sx={{ zIndex: 2000 }} />
         <SideBar />
       </Paper>
     </Box>
