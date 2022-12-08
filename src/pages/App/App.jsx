@@ -16,9 +16,8 @@ function App() {
   const [user, setUser] = useState(getUser());
   const [topStories, setTopStories] = useState([]);
   const [savedStories, setSavedStories] = useState([]);
-  const [currentStory, setCurrentStory] = useState([]);
-
   const [searchStories, setSearchStories] = useState([]);
+  const [currentStory, setCurrentStory] = useState([]);
 
   useEffect(function () {
     async function getStory() {
@@ -36,6 +35,21 @@ function App() {
   async function getSearch(query) {
     const stories = await newsAPI.searchStories(query);
     setSearchStories(stories.articles);
+  }
+
+  async function handleSave(story) {
+    const token = localStorage.getItem("token");
+    const headers = {};
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+    }
+    axios
+      .post("/api/news/saveStory", story, {
+        headers: headers,
+      })
+      .then((result) => {
+        setSavedStories([...savedStories, result.data]);
+      });
   }
 
   function handleDelete(id) {
@@ -59,14 +73,38 @@ function App() {
               element={
                 <TopStoryPage
                   topStories={topStories}
+                  savedStories={savedStories}
+                  setSavedStories={setSavedStories}
+                  handleSave={handleSave}
+                  handleDelete={handleDelete}
+                  setCurrentStory={setCurrentStory}
                   user={user}
+                />
+              }
+            />
+            <Route
+              path="/stories/saved"
+              element={
+                <SavedStoriesPage
+                  savedStories={savedStories}
+                  setSavedStories={setSavedStories}
+                  handleDelete={handleDelete}
                   setCurrentStory={setCurrentStory}
                 />
               }
             />
             <Route
               path="/stories/detail"
-              element={<DetailsPage story={currentStory} />}
+              element={
+                <DetailsPage
+                  story={currentStory}
+                  savedStories={savedStories}
+                  setSavedStories={setSavedStories}
+                  handleSave={handleSave}
+                  handleDelete={handleDelete}
+                  user={user}
+                />
+              }
             />
             <Route
               path="/search"
@@ -74,7 +112,12 @@ function App() {
                 <SearchPage
                   getSearch={getSearch}
                   searchStories={searchStories}
+                  savedStories={savedStories}
+                  setSavedStories={setSavedStories}
+                  handleSave={handleSave}
+                  handleDelete={handleDelete}
                   setCurrentStory={setCurrentStory}
+                  user={user}
                 />
               }
             />

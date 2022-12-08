@@ -11,7 +11,11 @@ import Grid from "@mui/material/Grid";
 export default function SearchPage({
   getSearch,
   searchStories,
+  savedStories,
+  setSavedStories,
+  handleDelete,
   setCurrentStory,
+  user,
 }) {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -32,11 +36,22 @@ export default function SearchPage({
         >
           {searchStories.length ? (
             searchStories.map((story, idx) => {
+              story.saved = false;
+              story._id = "";
+              savedStories.forEach(function (saved) {
+                if (saved.url === story.url && user.id === saved.id) {
+                  story.saved = true;
+                  story._id = saved._id;
+                }
+              });
               return (
                 <Grid item xs={2} sm={4} md={4} key={idx}>
                   <StoryCard
-                    story={story}
                     key={idx}
+                    story={story}
+                    savedStories={savedStories}
+                    setSavedStories={setSavedStories}
+                    handleDelete={handleDelete}
                     setCurrentStory={setCurrentStory}
                   />
                 </Grid>
