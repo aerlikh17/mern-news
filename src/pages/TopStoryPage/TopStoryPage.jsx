@@ -44,17 +44,15 @@ export default function TopStoryPage({
 
               return (
                 <Grid item xs={2} sm={4} md={4} key={idx} id="gridItem">
-                  <Item>
-                    <StoryCard
-                      key={idx}
-                      story={story}
-                      savedStories={savedStories}
-                      setSavedStories={setSavedStories}
-                      handleSave={handleSave}
-                      handleDelete={handleDelete}
-                      setCurrentStory={setCurrentStory}
-                    />
-                  </Item>
+                  <StoryCard
+                    key={idx}
+                    story={story}
+                    savedStories={savedStories}
+                    setSavedStories={setSavedStories}
+                    handleSave={handleSave}
+                    handleDelete={handleDelete}
+                    setCurrentStory={setCurrentStory}
+                  />
                 </Grid>
               );
             }
