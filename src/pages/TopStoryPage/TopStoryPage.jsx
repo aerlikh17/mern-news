@@ -32,15 +32,15 @@ export default function TopStoryPage({
         {topStories.length > 0 &&
           topStories.map((story, idx) => {
             {
+              story.saved = false;
+              story._id = "";
               savedStories.forEach(function (saved) {
                 if (saved.url === story.url && user.id === saved.id) {
                   story.saved = true;
                   story._id = saved._id;
                 }
               });
-            }
 
-            {
               return (
                 <Grid item xs={2} sm={4} md={4} key={idx}>
                   <StoryCard

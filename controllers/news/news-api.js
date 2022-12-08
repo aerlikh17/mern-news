@@ -48,8 +48,6 @@ async function saveStory(req, res) {
   if (!req.body.author) req.body.author = "Unknown author";
   if (!req.body.content) req.body.content = "No content";
   try {
-    console.log(req.body);
-
     let story = await Story.create({
       source: req.body.source.name,
       author: req.body.author,

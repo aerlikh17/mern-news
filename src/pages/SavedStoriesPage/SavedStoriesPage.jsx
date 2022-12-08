@@ -9,13 +9,13 @@ export default function SavedStoryPage({
   handleDelete,
   setCurrentStory,
 }) {
-  useEffect(function () {
-    async function fetchStory() {
-      const stories = await newsAPI.getSavedStories();
-      setSavedStories(stories);
-    }
-    fetchStory();
-  }, []);
+  // useEffect(function () {
+  //   async function fetchStory() {
+  //     const stories = await newsAPI.getSavedStories();
+  //     setSavedStories(stories);
+  //   }
+  //   fetchStory();
+  // }, []);
 
   return (
     <>
