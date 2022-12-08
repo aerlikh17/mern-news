@@ -20,6 +20,7 @@ export default function TopStoryPage({
       <Typography variant="h3" marginBottom="4rem">
         Top Stories
       </Typography>
+      <hr></hr>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
