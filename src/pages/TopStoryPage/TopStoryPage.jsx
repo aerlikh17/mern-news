@@ -16,11 +16,11 @@ export default function TopStoryPage({ topStories, user, setCurrentStory }) {
   }));
 
   return (
-    <Box className="page-body" sx={{ flexGrow: 1 }}>
+    <Box className="page-body" sx={{ flexGrow: 2 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 2, sm: 8, md: 12 }}
+        columns={{ xs: 2, sm: 2, md: 8, lg: 12 }}
       >
         {topStories.map((story, idx) => {
           return (

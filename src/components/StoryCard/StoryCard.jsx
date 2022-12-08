@@ -40,10 +40,10 @@ export default function StoryCard({ story, user, setCurrentStory }) {
   }, []);
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: "100%", maxHeight: "100%" }}>
       <CardMedia
         component="img"
-        height="140"
+        maxHeight="100%"
         image={story.urlToImage}
         alt="news story image"
       />
