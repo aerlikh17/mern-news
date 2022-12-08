@@ -27,6 +27,7 @@ export default function SearchBar({ getSearch }) {
         alignItems: "center",
         width: "100%",
         maxWidth: "md",
+        marginBottom: "3rem",
       }}
       onSubmit={handleSubmit}
     >

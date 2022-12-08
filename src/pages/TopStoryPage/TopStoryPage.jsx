@@ -3,8 +3,8 @@ import StoryCard from "../../components/StoryCard/StoryCard";
 
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 import { getSavedStories } from "../../utilities/news-api";
 
 export default function TopStoryPage({
@@ -44,15 +44,17 @@ export default function TopStoryPage({
 
               return (
                 <Grid item xs={2} sm={4} md={4} key={idx} id="gridItem">
-                  <StoryCard
-                    key={idx}
-                    story={story}
-                    savedStories={savedStories}
-                    setSavedStories={setSavedStories}
-                    handleSave={handleSave}
-                    handleDelete={handleDelete}
-                    setCurrentStory={setCurrentStory}
-                  />
+                  <Item>
+                    <StoryCard
+                      key={idx}
+                      story={story}
+                      savedStories={savedStories}
+                      setSavedStories={setSavedStories}
+                      handleSave={handleSave}
+                      handleDelete={handleDelete}
+                      setCurrentStory={setCurrentStory}
+                    />
+                  </Item>
                 </Grid>
               );
             }

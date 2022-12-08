@@ -1,6 +1,5 @@
 import React from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import "./SearchPage.css";
 import StoryCard from "../../components/StoryCard/StoryCard";
 
 import { experimentalStyled as styled } from "@mui/material/styles";
@@ -19,7 +18,7 @@ export default function SearchPage({
   user,
 }) {
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#cccccc",
     ...theme.typography.body2,
     padding: theme.spacing(2),
     textAlign: "center",
@@ -35,7 +34,7 @@ export default function SearchPage({
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 2, sm: 2, md: 8, lg: 12 }}
         >
-          {searchStories.length ? (
+          {searchStories.length > 0 ? (
             searchStories.map((story, idx) => {
               story.saved = false;
               story._id = "";
@@ -47,15 +46,17 @@ export default function SearchPage({
               });
               return (
                 <Grid item xs={2} sm={4} md={4} key={idx} id="gridItem">
-                  <StoryCard
-                    key={idx}
-                    story={story}
-                    savedStories={savedStories}
-                    setSavedStories={setSavedStories}
-                    handleSave={handleSave}
-                    handleDelete={handleDelete}
-                    setCurrentStory={setCurrentStory}
-                  />
+                  <Item>
+                    <StoryCard
+                      key={idx}
+                      story={story}
+                      savedStories={savedStories}
+                      setSavedStories={setSavedStories}
+                      handleSave={handleSave}
+                      handleDelete={handleDelete}
+                      setCurrentStory={setCurrentStory}
+                    />
+                  </Item>
                 </Grid>
               );
             })
