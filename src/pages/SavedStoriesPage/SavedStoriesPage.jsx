@@ -1,10 +1,11 @@
 import React from "react";
 import * as newsAPI from "../../utilities/news-api";
 import { useEffect } from "react";
+import StoryCard from "../../components/StoryCard/StoryCard";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import StoryCard from "../../components/StoryCard/StoryCard";
+import Typography from "@mui/material/Typography";
 
 export default function SavedStoryPage({
   savedStories,
@@ -22,6 +23,9 @@ export default function SavedStoryPage({
 
   return (
     <Box className="page-body" sx={{ flexGrow: 1 }}>
+      <Typography variant="h3" marginBottom="4rem">
+        Saved Stories
+      </Typography>
       {savedStories.length > 0 ? (
         <Grid
           container

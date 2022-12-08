@@ -4,6 +4,7 @@ import StoryCard from "../../components/StoryCard/StoryCard";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import { Typography } from "@mui/material";
 
 export default function SearchPage({
   getSearch,
@@ -18,6 +19,9 @@ export default function SearchPage({
   return (
     <>
       <Box className="page-body" sx={{ flexGrow: 1 }}>
+        <Typography variant="h3" marginBottom="4rem">
+          Search
+        </Typography>
         <SearchBar getSearch={getSearch} />
         <Grid
           container

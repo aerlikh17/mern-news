@@ -17,7 +17,7 @@ export default function TopStoryPage({
 }) {
   return (
     <Box className="page-body" sx={{ flexGrow: 1 }}>
-      <Typography variant="h2" marginBottom="4rem">
+      <Typography variant="h3" marginBottom="4rem">
         Top Stories
       </Typography>
       <Grid
