@@ -40,6 +40,11 @@ body {
   justify-content: center;
 }
 
+a {
+  color: #36312e;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 900px) {
   .page-body {
     margin-left: 240px;
