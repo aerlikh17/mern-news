@@ -34,16 +34,22 @@ export default function StoryCard({
 
   return (
     <Card sx={{ maxWidth: "100%", maxHeight: "100%" }}>
-      <CardMedia
-        component="img"
-        maxHeight="100%"
-        image={story.urlToImage}
-        alt="news story image"
-      />
-      <CardActions>
-        <a href={story.url}>
-          <Button size="small">{story.source.name}</Button>
-        </a>
+      <Link
+        to={{ pathname: "/stories/detail", state: { story: { story } } }}
+        onClick={() => setCurrentStory(story)}
+      >
+        <CardMedia
+          component="img"
+          maxHeight="100%"
+          image={story.urlToImage}
+          alt="news story image"
+        />
+      </Link>
+      <CardActions sx={{ justifyContent: "space-between" }}>
+        <Button size="small" href={story.url}>
+          {story.source.name}
+        </Button>
+
         {(savedStories && savedStories.includes(story)) || story.saved ? (
           <Button size="small" onClick={() => handleDelete(story._id)}>
             Unsave -
@@ -59,8 +65,8 @@ export default function StoryCard({
           to={{ pathname: "/stories/detail", state: { story: { story } } }}
           onClick={() => setCurrentStory(story)}
         >
-          <Typography align="left" gutterBottom variant="h5" component="div">
-            <a>{story.title}</a>
+          <Typography align="center" gutterBottom variant="h5" component="div">
+            {story.title}
           </Typography>
         </Link>
       </CardContent>

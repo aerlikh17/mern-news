@@ -59,7 +59,7 @@ export default function SearchPage({
               );
             })
           ) : (
-            <h4>Search</h4>
+            <h4></h4>
           )}
         </Grid>
       </Box>
