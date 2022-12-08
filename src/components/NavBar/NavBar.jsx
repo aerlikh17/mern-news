@@ -119,39 +119,37 @@ export default function FixedNavigation({ user, setUser }) {
 
   const BottomNav = () => {
     return (
-      <div id="botNav">
-        <BottomNavigation
-          showLabels
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-          sx={{
-            display: { md: "none" },
-          }}
-        >
-          <BottomNavigationAction
-            label="Top Stories"
-            icon={<GradeIcon />}
-            onClick={handleTopStories}
-          />
-          <BottomNavigationAction
-            label="Search"
-            icon={<SearchIcon />}
-            onClick={handleSearch}
-          />
-          <BottomNavigationAction
-            label="Saved Stories"
-            icon={<FavoriteIcon />}
-            onClick={handleSavedStories}
-          />
-          <BottomNavigationAction
-            label="Log out"
-            icon={<LogoutIcon />}
-            onClick={handleLogOut}
-          />
-        </BottomNavigation>
-      </div>
+      <BottomNavigation
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        sx={{
+          display: { md: "none" },
+        }}
+      >
+        <BottomNavigationAction
+          label="Top Stories"
+          icon={<GradeIcon />}
+          onClick={handleTopStories}
+        />
+        <BottomNavigationAction
+          label="Search"
+          icon={<SearchIcon />}
+          onClick={handleSearch}
+        />
+        <BottomNavigationAction
+          label="Saved Stories"
+          icon={<FavoriteIcon />}
+          onClick={handleSavedStories}
+        />
+        <BottomNavigationAction
+          label="Log out"
+          icon={<LogoutIcon />}
+          onClick={handleLogOut}
+        />
+      </BottomNavigation>
     );
   };
 
