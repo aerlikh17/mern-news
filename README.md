@@ -15,7 +15,7 @@ The app allows the intended user to:
 
 # Team Members
 1. Matthew Tiberio
-2. Abdi Abukar
+2. Abdirahman Abukar
 3. Lucas Friedmann
 4. Anastasiia Erlikh
 
