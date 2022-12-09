@@ -74,3 +74,4 @@ ERD
 * Show the user their favorite publications
 * Show personalized recommendations based on their search/saved news
 * Add comments section in details page
+* Add dates to news articles
