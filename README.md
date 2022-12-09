@@ -14,10 +14,10 @@ The app allows the intended user to:
 * Remove news from their profile
 
 # Team Members
-1. Matthew Tiberio
-2. Abdirahman Abukar
-3. Lucas Friedmann
-4. Anastasiia Erlikh
+1. [Matthew Tiberio](https://github.com/matthewTiberio)
+2. [Abdirahman Abukar](https://github.com/wadoichimoji)
+3. [Lucas Friedmann](https://github.com/Lfreeds)
+4. [Anastasiia Erlikh](https://github.com/aerlikh17)
 
 # App Screenshots
 
