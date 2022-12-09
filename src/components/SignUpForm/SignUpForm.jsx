@@ -85,7 +85,8 @@ export default class SignUpForm extends Component {
                 alignItems: "center",
               }}
             >
-              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <img src="/newsbyte_imageURL.png" alt="" />
+              <Avatar sx={{ m: 1, bgcolor: "#1976d2" }}>
                 <LockOutlinedIcon />
               </Avatar>
               <Typography component="h1" variant="h5">

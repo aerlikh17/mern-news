@@ -73,7 +73,9 @@ export default function LoginForm({ setUser, setShowSignUp, showSignUp }) {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <img src="/newsbyte_imageURL.png" alt="" />
+
+            <Avatar sx={{ m: 1, bgcolor: "#1976d2" }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -108,10 +110,6 @@ export default function LoginForm({ setUser, setShowSignUp, showSignUp }) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
               />
               <Button
                 type="submit"
