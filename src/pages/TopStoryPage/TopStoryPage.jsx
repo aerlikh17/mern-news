@@ -17,7 +17,7 @@ export default function TopStoryPage({
   return (
     <Box className="page-body" sx={{ flexGrow: 1 }}>
       <Paper
-        elevation3
+        elevation={4}
         sx={{
           backgroundColor: "#004aad",
           width: "100vw",

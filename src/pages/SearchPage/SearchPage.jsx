@@ -20,7 +20,7 @@ export default function SearchPage({
     <>
       <Box className="page-body" sx={{ flexGrow: 1 }}>
         <Paper
-          elevation3
+          elevation={4}
           sx={{
             backgroundColor: "#004aad",
             width: "100vw",
@@ -36,9 +36,10 @@ export default function SearchPage({
             className="font-link"
             style={{ color: "white", fontSize: "3rem" }}
           >
-            Search Articles
+            Search Stories
           </h1>
         </Paper>
+        <hr />
         <SearchBar getSearch={getSearch} />
         <Grid
           container
