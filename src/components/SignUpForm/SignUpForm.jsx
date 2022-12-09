@@ -162,7 +162,6 @@ export default class SignUpForm extends Component {
                   Sign Up
                 </Button>
                 <Link
-                  href="#"
                   variant="body2"
                   onClick={() =>
                     this.props.setShowSignUp(!this.props.showSignUp)
