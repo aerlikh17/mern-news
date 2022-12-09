@@ -70,8 +70,9 @@ ERD
 <img src="./public/News_App_ERD.png">
 
 # Next Steps
-* Allow the user to change country and language preferences in settings
+* Add dates to news articles
+* Add comments section in details page
 * Show the user their favorite publications
 * Show personalized recommendations based on their search/saved news
-* Add comments section in details page
-* Add dates to news articles
+* Allow the user to change country and language preferences in settings
+
