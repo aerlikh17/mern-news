@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import "./StoryCard.css";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -17,21 +16,6 @@ export default function StoryCard({
   handleDelete,
   setCurrentStory,
 }) {
-  // async function handleSave() {
-  //   const token = localStorage.getItem("token");
-  //   const headers = {};
-  //   if (token) {
-  //     headers.Authorization = `Bearer ${token}`;
-  //   }
-  //   axios
-  //     .post("/api/news/saveStory", story, {
-  //       headers: headers,
-  //     })
-  //     .then((result) => {
-  //       setSavedStories([...savedStories, result.data]);
-  //     });
-  // }
-
   return (
     <Card sx={{ maxWidth: "100%", maxHeight: "100%" }}>
       <Link
@@ -41,13 +25,13 @@ export default function StoryCard({
         <CardMedia
           component="img"
           maxHeight="100%"
-          image={story.urlToImage}
+          image={story.urlToImage ? story.urlToImage : "/newsbyte_imageURL.png"}
           alt="news story image"
         />
       </Link>
       <CardActions sx={{ justifyContent: "space-between" }}>
         <Button size="small" href={story.url}>
-          {story.source.name}
+          {story.source.name ? story.source.name : story.source}
         </Button>
 
         {(savedStories && savedStories.includes(story)) || story.saved ? (
@@ -65,7 +49,13 @@ export default function StoryCard({
           to={{ pathname: "/stories/detail", state: { story: { story } } }}
           onClick={() => setCurrentStory(story)}
         >
-          <Typography align="center" gutterBottom variant="h5" component="div">
+          <Typography
+            align="center"
+            gutterBottom
+            variant="h5"
+            component="div"
+            id="storyTitle"
+          >
             {story.title}
           </Typography>
         </Link>

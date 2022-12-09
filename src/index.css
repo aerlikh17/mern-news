@@ -23,7 +23,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: var(--tan-1) !important;
   padding: 2vmin;
   height: 100vh;
 }
@@ -45,8 +45,24 @@ a {
   text-decoration: none;
 }
 
+.font-link {
+  font-family: "Bebas Neue";
+}
+
 @media only screen and (min-width: 900px) {
   .page-body {
     margin-left: 240px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  #storyTitle {
+    font-size: 1.25rem;
+  }
+  #storyInfo {
+    font-size: 1rem;
   }
 }

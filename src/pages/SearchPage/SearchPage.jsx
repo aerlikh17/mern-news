@@ -3,8 +3,8 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import StoryCard from "../../components/StoryCard/StoryCard";
 
 import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import { Typography } from "@mui/material";
 
 export default function SearchPage({
   getSearch,
@@ -19,9 +19,27 @@ export default function SearchPage({
   return (
     <>
       <Box className="page-body" sx={{ flexGrow: 1 }}>
-        <Typography variant="h3" marginBottom="4rem">
-          Search
-        </Typography>
+        <Paper
+          elevation={4}
+          sx={{
+            backgroundColor: "#004aad",
+            width: "100vw",
+            height: "4rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+            top: "-1.2rem",
+          }}
+        >
+          <h1
+            className="font-link"
+            style={{ color: "white", fontSize: "3rem" }}
+          >
+            Search Stories
+          </h1>
+        </Paper>
+        <hr />
         <SearchBar getSearch={getSearch} />
         <Grid
           container

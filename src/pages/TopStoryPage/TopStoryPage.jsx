@@ -1,10 +1,9 @@
 import React from "react";
 import StoryCard from "../../components/StoryCard/StoryCard";
 
+import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { Typography } from "@mui/material";
-import { getSavedStories } from "../../utilities/news-api";
 
 export default function TopStoryPage({
   topStories,
@@ -17,9 +16,24 @@ export default function TopStoryPage({
 }) {
   return (
     <Box className="page-body" sx={{ flexGrow: 1 }}>
-      <Typography variant="h3" marginBottom="4rem">
-        Top Stories
-      </Typography>
+      <Paper
+        elevation={4}
+        sx={{
+          backgroundColor: "#004aad",
+          width: "100vw",
+          height: "4rem",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "relative",
+          top: "-1.2rem",
+        }}
+      >
+        <h1 className="font-link" style={{ color: "white", fontSize: "3rem" }}>
+          Top Stories
+        </h1>
+      </Paper>
+      <hr></hr>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
