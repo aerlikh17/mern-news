@@ -54,6 +54,8 @@ _Saved stories page_
 * Node
 * Express
 * MongoDB/Mongoose
+* NewsAPI
+* MaterialUI
 
 # Getting Started
 
