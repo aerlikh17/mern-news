@@ -43,7 +43,7 @@ _Search page_
 
 _Saved stories page_
 
-<img src="./public/Saved_Stories_Page.png"/>
+<img src="./public/Saved_Stories.png"/>
 
 # Technologies Used
 
