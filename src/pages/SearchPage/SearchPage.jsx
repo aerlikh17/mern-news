@@ -29,7 +29,7 @@ export default function SearchPage({
             alignItems: "center",
             justifyContent: "center",
             position: "relative",
-            top: "-1rem",
+            top: "-1.2rem",
           }}
         >
           <h1

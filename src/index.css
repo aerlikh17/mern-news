@@ -54,3 +54,15 @@ a {
     margin-left: 240px;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  #storyTitle {
+    font-size: 1.25rem;
+  }
+  #storyInfo {
+    font-size: 1rem;
+  }
+}

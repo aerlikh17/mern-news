@@ -33,7 +33,7 @@ export default function SavedStoryPage({
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          top: "-1rem",
+          top: "-1.2rem",
         }}
       >
         <h1 className="font-link" style={{ color: "white", fontSize: "3rem" }}>
