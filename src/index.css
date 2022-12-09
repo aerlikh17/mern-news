@@ -45,8 +45,8 @@ a {
   text-decoration: none;
 }
 
-.nav-button:active {
-  color: #1976d2;
+.font-link {
+  font-family: "Bebas Neue";
 }
 
 @media only screen and (min-width: 900px) {
