@@ -73,7 +73,9 @@ export default function LoginForm({ setUser, setShowSignUp, showSignUp }) {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <img src="/newsbyte_imageURL.png" alt="" />
+
+            <Avatar sx={{ m: 1, bgcolor: "#1976d2" }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -109,10 +111,6 @@ export default function LoginForm({ setUser, setShowSignUp, showSignUp }) {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
@@ -121,22 +119,10 @@ export default function LoginForm({ setUser, setShowSignUp, showSignUp }) {
               >
                 Sign In
               </Button>
-              <Grid container>
-                {/* <Grid item xs>
-                  <Link href="#" variant="body2">
-                  Forgot password?
-                  </Link>
-                </Grid> */}
-                <Grid item>
-                  <Link
-                    href="#"
-                    variant="body2"
-                    onClick={() => setShowSignUp(!showSignUp)}
-                  >
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
+
+              <Link variant="body2" onClick={() => setShowSignUp(!showSignUp)}>
+                {"Don't have an account? Sign Up"}
+              </Link>
             </Box>
           </Box>
         </Grid>

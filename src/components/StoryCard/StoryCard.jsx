@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import "./StoryCard.css";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -50,7 +49,13 @@ export default function StoryCard({
           to={{ pathname: "/stories/detail", state: { story: { story } } }}
           onClick={() => setCurrentStory(story)}
         >
-          <Typography align="center" gutterBottom variant="h5" component="div">
+          <Typography
+            align="center"
+            gutterBottom
+            variant="h5"
+            component="div"
+            id="storyTitle"
+          >
             {story.title}
           </Typography>
         </Link>

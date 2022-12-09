@@ -45,12 +45,24 @@ a {
   text-decoration: none;
 }
 
-#botNav {
-  z-index: 2;
+.font-link {
+  font-family: "Bebas Neue";
 }
 
 @media only screen and (min-width: 900px) {
   .page-body {
     margin-left: 240px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  #storyTitle {
+    font-size: 1.25rem;
+  }
+  #storyInfo {
+    font-size: 1rem;
   }
 }
