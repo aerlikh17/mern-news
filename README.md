@@ -23,7 +23,7 @@ The app allows the intended user to:
 
 _Login page_
 
-<img src="./public/Login.png"/>
+<img src="./public/Login_Page.png"/>
 
 _Sign up page_
 
