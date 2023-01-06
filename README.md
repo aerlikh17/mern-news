@@ -59,7 +59,7 @@ _Saved stories page_
 
 # Getting Started
 
-Click [here](https://news-byte-app.netlify.com/) to deploy NewsByte App
+Click [here](https://news-byte-app.herokuapp.com/) to deploy NewsByte App
 
 [Trello Board](https://trello.com/b/XqvhUQm4/project-4)
 
