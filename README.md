@@ -50,8 +50,8 @@ _Saved stories page_
 * HTML
 * CSS 
 * JavaScript
-* React
-* Node
+* React.js
+* Node.js
 * Express
 * MongoDB/Mongoose
 * NewsAPI
